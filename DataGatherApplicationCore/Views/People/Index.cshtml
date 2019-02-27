@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DataGatherApplicationCore.Models.People>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>People List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PeopleFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PeopleLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PeopleProfession)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PeoplePhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PeopleAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PeopleCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PeopleCountry)
+            </th>
+			<th>
+				<a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="=fa fa-plus-square"></i> Add New</a>
+			</th>
+        </tr>
+    </thead>
+	<tbody>
+		
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.PeopleFirstName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PeopleLastName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PeopleProfession)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PeoplePhoneNumber)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PeopleAddress)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PeopleCity)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PeopleCountry)
+				</td>
+				<td>
+					<a asp-action="AddOrEdit" asp-route-id="@item.PeopleID"><i class="fa fa-marker fa-lg"></i></a> |
+					<a asp-action="Delete" asp-route-id="@item.PeopleID" onclick="confirm("Do you want to Delete?")"><i class="fa fa-trash-alt ga-lg"></i></a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

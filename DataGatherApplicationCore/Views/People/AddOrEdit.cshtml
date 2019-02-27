@@ -1,0 +1,72 @@
+﻿@model DataGatherApplicationCore.Models.People
+
+@{
+    ViewData["Title"] = "AddOrEdit";
+}
+
+<h4>People Form</h4>
+<hr />
+<div class="row">
+	<div class="col-md-6">
+		<form asp-action="AddOrEdit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="PeopleID" />
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label asp-for="PeopleFirstName" class="control-label"></label>
+					<input asp-for="PeopleFirstName" class="form-control" />
+					<span asp-validation-for="PeopleFirstName" class="text-danger"></span>
+				</div>
+				<div class="form-group col-md-6">
+					<label asp-for="PeopleLastName" class="control-label"></label>
+					<input asp-for="PeopleLastName" class="form-control" />
+					<span asp-validation-for="PeopleLastName" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label asp-for="PeopleProfession" class="control-label"></label>
+					<input asp-for="PeopleProfession" class="form-control" />
+					<span asp-validation-for="PeopleProfession" class="text-danger"></span>
+				</div>
+				<div class="form-group col-md-6">
+					<label asp-for="PeoplePhoneNumber" class="control-label"></label>
+					<input asp-for="PeoplePhoneNumber" class="form-control" />
+					<span asp-validation-for="PeoplePhoneNumber" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label asp-for="PeopleAddress" class="control-label"></label>
+					<input asp-for="PeopleAddress" class="form-control" />
+					<span asp-validation-for="PeopleAddress" class="text-danger"></span>
+				</div>
+				<div class="form-group col-md-6">
+					<label asp-for="PeopleCity" class="control-label"></label>
+					<input asp-for="PeopleCity" class="form-control" />
+					<span asp-validation-for="PeopleCity" class="text-danger"></span>
+				</div>
+				<div class="form-group col-md-6">
+					<label asp-for="PeopleCountry" class="control-label"></label>
+					<input asp-for="PeopleCountry" class="form-control" />
+					<span asp-validation-for="PeopleCountry" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<input type="submit" value="Create" class="btn btn-primary btn-block" />
+				</div>
+				<div class="form-group col-md-6">
+					<a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Back to List</a>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>
+
+
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
